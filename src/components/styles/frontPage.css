@@ -1,0 +1,47 @@
+.lv-frontpg-wrapper {
+  width: 100vw;
+  height: 100vh;
+  background-image: url("../../../public/background.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.lv-frontpg-content {
+  margin-bottom: 8vw;
+  color: white;
+  font-family: "Barlow Condensed", sans-serif;
+  font-weight: 600;
+  font-size: 4vw;
+  padding: 0.5vw;
+  text-transform: capitalize;
+  letter-spacing: 0.5vw;
+}
+
+.lv-frontpg-link {
+  width: 20vw;
+  height: 7vw;
+  background-color: rgb(236, 234, 234);
+  border-radius: 2vw;
+  color: rgb(0, 0, 115);
+  font-family: "Barlow Condensed", sans-serif;
+  font-weight: 600;
+  font-size: 2.2vw;
+  text-align: center;
+  text-transform: capitalize;
+  padding: 1vw 2vw 1vw 2vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-shadow: rgba(253, 238, 238, 0.35) 0px 5px 15px;
+  cursor: pointer;
+}
+
+.lv-frontpg-link:hover {
+  background-color: white;
+  box-shadow: rgba(255, 255, 255, 0.35) 0px 5px 15px;
+}
