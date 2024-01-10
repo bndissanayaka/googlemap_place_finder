@@ -43,9 +43,30 @@ a {
   text-align: left;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-  font-size: 1vw;
+  font-size: 1em;
 }
 
 .lv-location-input {
   width: 20vw !important;
+}
+
+.lv-delete-text {
+  text-align: left;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  font-size: 0.7em;
+  margin-left: 1vw;
+}
+
+.lv-history-text {
+  text-align: left;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  font-size: 0.8em;
+  margin-left: 1vw;
+  margin-top: 1vw;
+}
+
+.css-78trlr-MuiButtonBase-root-MuiIconButton-root {
+  border-radius: 5px !important;
 }

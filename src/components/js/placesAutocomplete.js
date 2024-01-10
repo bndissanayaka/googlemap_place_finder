@@ -11,12 +11,15 @@ import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemText from "@mui/material/ListItemText";
 import { useDispatch, useSelector } from "react-redux";
-import { addToPlaces } from "../../redux/placeSlice";
+import { addToPlaces, clearHistory } from "../../redux/placeSlice";
 import "../../../src/components/styles/globals.css";
 import { useEffect } from "react";
+import { CardHeader, IconButton } from "@mui/material";
+import DeleteSweepIcon from "@mui/icons-material/DeleteSweep";
 
 function PlacesAutocomplete({ setSelected }) {
   const places = useSelector((state) => state.places);
+  const dispatch = useDispatch();
 
   const {
     ready,
@@ -25,7 +28,7 @@ function PlacesAutocomplete({ setSelected }) {
     suggestions: { status, data },
     clearSuggestions,
   } = usePlacesAutocomplete();
-  const dispatch = useDispatch();
+
   const onPlaceClicked = async (address) => {
     setValue(address, false);
     dispatch(
@@ -34,7 +37,7 @@ function PlacesAutocomplete({ setSelected }) {
       })
     );
 
-    clearSuggestions();
+    setValue("");
 
     const results = await getGeocode({ address });
     const latlang = await getLatLng(results[0]);
@@ -45,6 +48,10 @@ function PlacesAutocomplete({ setSelected }) {
   useEffect(() => {
     /* dispatch(fetchContent()); */
   }, [places]);
+
+  const removeHistory = () => {
+    dispatch(clearHistory());
+  };
 
   return (
     <div className="lv-location-input">
@@ -59,6 +66,18 @@ function PlacesAutocomplete({ setSelected }) {
               disabled={!ready}
             />
           </Box>
+          {localStorage.getItem("placesHistory")?.length > 0 && (
+            <CardHeader
+              action={
+                <IconButton onClick={removeHistory}>
+                  <DeleteSweepIcon />
+                  <p className="lv-delete-text" onClick={removeHistory}>
+                    Delete History
+                  </p>
+                </IconButton>
+              }
+            />
+          )}
           <Box sx={{ display: "flex", flexDirection: "row" }}>
             {status === "OK" ? (
               <List
@@ -75,7 +94,7 @@ function PlacesAutocomplete({ setSelected }) {
                   <ListItem key={item.place_id}>
                     <ListItemButton>
                       <ListItemText
-                        onClick={() => onPlaceClicked(item.description)}
+                        onClick={() => onPlaceClicked(item?.description)}
                       >
                         {item.description}
                       </ListItemText>
@@ -85,17 +104,15 @@ function PlacesAutocomplete({ setSelected }) {
               </List>
             ) : (
               <div>
-                {JSON.parse(localStorage.getItem("placesHistory"))?.map
-                  ?.length > 0 &&
+                {localStorage.getItem("placesHistory")?.length > 0 &&
                   JSON.parse(localStorage.getItem("placesHistory"))?.map(
                     (item) => (
-                      <p className="lv-history-places">- {item.place}</p>
+                      <p className="lv-history-places">- {item?.place}</p>
                     )
                   )}
-                {JSON.parse(localStorage.getItem("placesHistory"))?.map
-                  ?.length === 0 && (
+                {localStorage.getItem("placesHistory")?.length === 0 && (
                   <center>
-                    <em>Search history is empty</em>
+                    <p className="lv-history-text">Search history is empty</p>
                   </center>
                 )}
               </div>

@@ -32,6 +32,8 @@ const placesSlice = createSlice({
     },
     clearHistory: (state, action) => {
       state.places = [];
+      historyArray = [];
+      localStorage.setItem("placesHistory", []);
     },
   },
   extraReducers: (builder) => {
