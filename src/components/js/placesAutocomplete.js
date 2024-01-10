@@ -26,7 +26,6 @@ function PlacesAutocomplete({ setSelected }) {
     value,
     setValue,
     suggestions: { status, data },
-    clearSuggestions,
   } = usePlacesAutocomplete();
 
   const onPlaceClicked = async (address) => {
