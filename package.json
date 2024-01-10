@@ -1,6 +1,7 @@
 {
+  
+  "homepage": "http://bndissanayaka.github.io/googlemap_place_finder",
   "name": "place_auto_complete_app",
-  "homepage": "https://bndissanayaka.github.io/googlemap_place_finder",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
