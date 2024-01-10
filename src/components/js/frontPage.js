@@ -1,5 +1,5 @@
 import React from "react";
-import "../components/styles/frontPage.css";
+import "../../components/styles/frontPage.css";
 import { Link } from "react-router-dom";
 
 function FrontPage() {

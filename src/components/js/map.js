@@ -1,6 +1,6 @@
 import React, { useMemo, useState } from "react";
 
-import { GoogleMap, useLoadScript, MarkerF } from "@react-google-maps/api";
+import { GoogleMap, MarkerF } from "@react-google-maps/api";
 import PlacesAutocomplete from "./placesAutocomplete";
 
 function Map() {

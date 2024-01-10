@@ -11,8 +11,8 @@ import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemText from "@mui/material/ListItemText";
 import { useDispatch, useSelector } from "react-redux";
-import { addToPlaces, fetchContent } from "../redux/placeSlice";
-import "../../src/components/styles/globals.css";
+import { addToPlaces } from "../../redux/placeSlice";
+import "../../../src/components/styles/globals.css";
 import { useEffect } from "react";
 
 function PlacesAutocomplete({ setSelected }) {
